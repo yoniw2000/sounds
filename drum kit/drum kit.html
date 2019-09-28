@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <title>drum kit!</title>
+            <link rel="stylesheet" type="text/css" href="drum kit!.css">
+
+    </head>
+
+    <body onkeydown="keydown(event)">
+
+        <h1 id="h1"> JavaScript Drum Kit   </h1>
+
+        <div class="keys">
+            <div class="key" onclick="play_sound(65)">
+                <inside>A</inside>
+                <span class="sound">clap</span>
+            </div>
+            <div class="key" onclick="play_sound(83)">
+                <inside>S</inside>
+                <span class="sound">hihat</span>
+            </div>
+            <div class="key" onclick="play_sound(68)">
+                <inside>D</inside>
+                <span class="sound">kick</span>
+            </div>
+            <div class="key" onclick="play_sound(70)">
+                <inside>F</inside>
+                <span class="sound">openhat</span>
+            </div>
+            <div class="key" onclick="play_sound(71)">
+                <inside>G</inside>
+                <span class="sound">boom</span>
+            </div>
+            <div class="key" onclick="play_sound(72)">
+                <inside>H</inside>
+                <span class="sound">ride</span>
+            </div>
+            <div class="key" onclick="play_sound(74)">
+                <inside>J</inside>
+                <span class="sound">snare</span>
+            </div>
+            <div class="key" onclick="play_sound(75)">
+                <inside>K</inside>
+                <span class="sound">tom</span>
+            </div>
+            <div class="key" onclick="play_sound(76)">
+                <inside>L</inside>
+                <span class="sound">tink</span>
+            </div>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+
+        <script>
+
+            list_sounds = ["sounds/clap1.wav", "sounds/highhat1.wav", "sounds/kick1.mp3", "sounds/openhat1.wav", "sounds/floor1.wav", "sounds/ride1.mp3", "sounds/s1.wav", "sounds/tom1.wav", "sounds/cowbell.wav"]
+            var audio;
+
+            function keydown(event) {
+                play_sound(event.keyCode)
+
+            }
+            function play_sound(kc) {
+                var audio = new Audio();
+                audio.volume = document.getElementById("points").value;
+                if (kc == 65) { //a  clap                   
+                    audio.src = list_sounds[0];
+                }
+                if (kc == 83) { //s  highhat                   
+                    audio.src = list_sounds[1];
+                }
+                if (kc == 68) {//d   kick                    
+                    audio.src = list_sounds[2];
+                }
+                if (kc == 70) {//f  openhat                    
+                    audio.src = list_sounds[3];
+                }
+                if (kc == 71) {//g   boom                    
+                    audio.src = list_sounds[4];
+                }
+                if (kc == 72) {//h  ride                    
+                    audio.src = list_sounds[5];
+                }
+                if (kc == 74) {//j  snare                    
+                    audio.src = list_sounds[6];
+                }
+                if (kc == 75) { //k   tom                  
+                    audio.src = list_sounds[7];
+                }
+                if (kc == 76) {//l  tink                  
+                    audio.src = list_sounds[8];
+                }
+
+                //var audio = new Audio("https://raw.githubusercontent.com/ArunMichaelDsouza/javascript-30-course/master/src/01-javascript-drum-kit/sounds/snare.wav")
+                //audio.play();
+
+
+                // var audio2 = new Audio("https://raw.githubusercontent.com/ArunMichaelDsouza/javascript-30-course/master/src/01-javascript-drum-kit/sounds/crash.wav")
+                //audio2.play();
+
+
+                //var audio2 = new Audio("https://raw.githubusercontent.com/ArunMichaelDsouza/javascript-30-course/master/src/01-javascript-drum-kit/sounds/hihat-close.wav")
+                //audio2.play();
+                audio.play();
+            }
+
+            
+
+            function my_alert() {
+                Swal.fire({
+                    position: 'top-end',
+                    type: 'success',
+                    title: " this app was created by mr j ",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+
+            
+
+        </script>
+
+        <ul>
+            <li><a href="#h1">go to start and play the drums</a></li>          
+            <li><a onmouseup="my_alert()">About the creator</a></li>       
+            <li><a>change volume</a><input type="range" id="points" min="0.0" max="1.0" step="0.1"></li>
+
+        </ul>
+    </body>
+</html>
+
